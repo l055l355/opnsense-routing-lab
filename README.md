@@ -20,7 +20,7 @@
 |   Kali 2 |                             192.168.100.20 | 255.255.255.0 |         Client |       Routed |
 
 **Topology:**   
-![image](files/image.png)    
+![image](images/image.png)    
    
 ### **Configuration Highlights:**   
 - Deployed OPNsense with two virtual NICs: one in NAT mode for WAN and one in an isolated mode for the LAN network.   
@@ -35,7 +35,7 @@
 **LAN clients receive IP but no DNS** - DHCP assignment succeeded but DNS resolution failed. Discovered the DNS Resolver service on OPNsense was disabled; enabled it and set correct DNS servers.
 
 **Clients could ping IPs but not hostnames** - After verifying that clients could reach external IP addresses but not resolve hostnames, I confirmed the issue was isolated to DNS. So I enabled DNS Forwarding, and disabled OPNsense forced DNS to allow internal clients to relay DNS queries through the router to upstream resolvers (1.1.1.1 / 8.8.8.8).   
-![image](files/image_t.png)    
+![image](images/image_t.png)    
 ^Validated DNS resolution and external connectivity by resolving `www.youtube.com` and loading web pages successfully.   
    
 ### **Outcomes & Lessons Learnt:**   
